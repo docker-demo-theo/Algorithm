@@ -4,3 +4,4 @@ flask
 gevent
 pillow
 requests
+flask-cors

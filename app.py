@@ -13,9 +13,11 @@ import numpy as np
 import flask
 import io
 import tensorflow as tf
+from flask_cors import CORS
 
 # initialize our Flask application and the Keras model
 app = flask.Flask(__name__)
+CORS(app)
 model = None
 
 def load_model():
@@ -42,6 +44,7 @@ def prepare_image(image, target):
 	return image
 
 @app.route("/predict", methods=["POST"])
+
 def predict():
 	# initialize the data dictionary that will be returned from the
 	# view
