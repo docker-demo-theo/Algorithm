@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-demo-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: ai-container
+        image: theodocker6/ai-demo:latest
+        ports:
+        - containerPort: 5000
+        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
